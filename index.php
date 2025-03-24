@@ -87,11 +87,11 @@
 				<!-- Loop through each toy in the database and display a card -->
 				<?php foreach ($all_toys as $toy): ?>
 					<div class="toy-card">
-						<a href="toy.php?toynum=<?= htmlspecialchars($toy['toynum']) ?>">
-							<img src="<?= htmlspecialchars($toy['imgSrc']) ?>" alt="<?= htmlspecialchars($toy['name']) ?>">
+						<a href="toy.php?toynum=<?= $toy['toynum'] ?>">
+							<img src="<?= $toy['imgSrc'] ?>" alt="<?=$toy['name'] ?>">
 						</a>
-						<h2><?= htmlspecialchars($toy['name']) ?></h2>
-						<p>$<?= htmlspecialchars($toy['price']) ?></p>
+						<h2><?= $toy['name'] ?></h2>
+						<p>$<?= $toy['price'] ?></p>
 					</div>
 				<?php endforeach; ?>
   			</section>

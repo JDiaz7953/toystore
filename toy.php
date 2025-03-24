@@ -87,7 +87,7 @@ return $stmt->fetch(PDO::FETCH_ASSOC);
 					<div class="toy-details-container">
         <div class="toy-image">
             <!-- Display image of toy with its name as alt text -->
-            <img src="<?= htmlspecialchars($toy['imgSrc']) ?>" alt="<?= htmlspecialchars($toy['name']) ?>">
+            <img src="<?= $toy['imgSrc'] ?>" alt="<?= $toy['name'] ?>">
         </div>
 
         <div class="toy-details">
