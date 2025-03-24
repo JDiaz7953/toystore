@@ -19,21 +19,18 @@
 
 	 function retrieveToy($pdo, $toy_id){
 		$sql = "SELECT 
-		t.*, 
-		m.name AS name, 
-		m.Street AS Street, 
-		m.phone AS phone, 
-		m.contact AS contact
-	FROM toy AS t
-	INNER JOIN manuf AS m ON t.manid = m.manid
-	WHERE t.toynum = :toynum";
-
-$stmt = $pdo->prepare($sql);
-$stmt->bindValue(':toynum', $toy_id, PDO::PARAM_STR);
-$stmt->execute();
-
-return $stmt->fetch(PDO::FETCH_ASSOC);
-	 }
+			t.*, 
+			m.name AS name, 
+			m.Street AS Street, 
+			m.phone AS phone, 
+			m.contact AS contact
+		FROM toy AS t
+		INNER JOIN manuf AS m ON t.manid = m.manid
+		WHERE t.toynum = '$toy_id'";
+	
+		$stmt = $pdo->query($sql); 
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
 	 $toy = retrieveToy($pdo, $toy_id);
 
 

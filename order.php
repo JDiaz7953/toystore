@@ -15,13 +15,9 @@
 			o.*
 		FROM customer AS c
 		INNER JOIN orders AS o ON c.custnum = o.custnum
-		WHERE c.email = :email AND o.ordernum = :orderNum";
-		
-		$stmt = $pdo->prepare($sql);
-		$stmt->bindValue(':email', $email, PDO::PARAM_STR);
-		$stmt->bindValue(':orderNum', $orderNum, PDO::PARAM_STR);
-		$stmt->execute();
-		
+		WHERE c.email = '$email' AND o.ordernum = '$orderNum'";
+	
+		$stmt = $pdo->query($sql); 
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 	
